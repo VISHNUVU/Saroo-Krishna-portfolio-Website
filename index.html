@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saroo Krishna R | Data Analyst Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
@@ -60,7 +61,7 @@
             background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
         }
         
-        /* Tech Grid specific styles for hover effect on rows */
+        /* Tech Grid specific styles */
         .tech-row:hover .tech-icon {
             color: white;
             transform: scale(1.1);
@@ -69,15 +70,505 @@
 <script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
   }
 }
 </script>
 </head>
-<body class="text-slate-400 selection:bg-cyan-500/20 selection:text-cyan-200">
-    <div id="root"></div>
+<body class="text-slate-400 selection:bg-cyan-500/20 selection:text-cyan-200 bg-slate-950">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-slate-100 font-medium tracking-tight text-lg flex items-center gap-2">
+                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                <span>Saroo Krishna R</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#work" class="hover:text-slate-100 transition-colors">Work</a>
+                <a href="#stack" class="hover:text-slate-100 transition-colors">Skills</a>
+                <a href="#about" class="hover:text-slate-100 transition-colors">About</a>
+                <a href="mailto:sarookrishnar@gmail.com" class="text-slate-100 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-full transition-all flex items-center gap-2">
+                    <span>Contact</span>
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-slate-950 pt-20 px-6 hidden md:hidden">
+        <div class="flex flex-col space-y-6 text-lg font-medium text-slate-300">
+            <a href="#work" class="mobile-link block py-2 border-b border-white/5">Work</a>
+            <a href="#stack" class="mobile-link block py-2 border-b border-white/5">Skills</a>
+            <a href="#about" class="mobile-link block py-2 border-b border-white/5">About</a>
+            <a href="mailto:sarookrishnar@gmail.com" class="flex items-center gap-2 text-white">
+                <span>Contact Me</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex flex-col justify-center items-center pt-20 px-6 overflow-hidden">
+            <!-- Background decorative elements -->
+            <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none mix-blend-screen"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none mix-blend-screen"></div>
+
+            <div class="relative max-w-4xl mx-auto text-center space-y-8 z-10">
+                <div class="fade-enter inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/30 border border-cyan-500/20 text-cyan-400 text-xs font-medium tracking-wide uppercase">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    </span>
+                    Open to new roles
+                </div>
+                
+                <h1 class="fade-enter animate-delay-100 text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white">
+                    Data driven insights, <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-b from-slate-200 to-slate-600">informed decisions.</span>
+                </h1>
+                
+                <p class="fade-enter animate-delay-200 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
+                    Data Analyst & ML Enthusiast specialized in Python, Deep Learning, and building interactive dashboards to uncover meaningful patterns in data.
+                </p>
+
+                <div class="fade-enter animate-delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#stack" class="w-full sm:w-auto px-8 py-3 rounded-lg bg-white text-slate-950 font-medium hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">
+                        View Skills
+                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://github.com/SAROO-KRISHNA" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-3 rounded-lg border border-slate-800 bg-slate-950/50 text-white font-medium hover:bg-slate-900 transition-colors flex items-center justify-center gap-2">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Abstract Data Vis Animation Placeholder -->
+            <div class="fade-enter animate-delay-400 mt-20 w-full max-w-5xl h-64 border-t border-l border-r border-slate-800 rounded-t-3xl bg-gradient-to-b from-slate-900/50 to-transparent relative overflow-hidden">
+                <div class="absolute inset-0 grid grid-cols-12 gap-4 p-8 opacity-20">
+                    <div class="col-span-1 h-32 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-16 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-48 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-24 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-40 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-56 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-32 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-20 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-44 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-64 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-36 bg-slate-500 rounded-md mt-auto"></div>
+                    <div class="col-span-1 h-28 bg-slate-500 rounded-md mt-auto"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="stack" class="py-24 px-6 relative bg-slate-950 border-t border-white/5">
+            <div class="max-w-6xl mx-auto space-y-12">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="space-y-4">
+                        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white">Technical Arsenal</h2>
+                        <p class="text-slate-400 max-w-xl">The frameworks, libraries, and infrastructure powering my data workflows.</p>
+                    </div>
+                    
+                    <!-- Status Badge -->
+                    <div class="hidden md:flex items-center gap-3 px-3 py-1.5 rounded-md bg-white/5 border border-white/10">
+                        <div class="flex gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-400">Available for Hire</span>
+                    </div>
+                </div>
+
+                <!-- Tech Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 bg-slate-800 border border-slate-800 rounded-2xl overflow-hidden gap-[1px]">
+                    
+                    <!-- Column 1: Core & Analysis -->
+                    <div class="bg-slate-950 p-0 flex flex-col h-full">
+                        <div class="p-6 border-b border-white/5 bg-slate-950/50 backdrop-blur-sm">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-4">
+                                <i data-lucide="bar-chart-2" class="w-5 h-5 text-indigo-400"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-slate-100">Core & Analysis</h3>
+                            <p class="text-sm text-slate-500 mt-1">Data manipulation and visualization.</p>
+                        </div>
+                        
+                        <div class="flex-1 divide-y divide-white/5">
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="file-code" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">Python</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-indigo-400 transition-colors">Primary</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="database" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">SQL</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-indigo-400 transition-colors">Querying</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="table-2" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">Pandas / NumPy</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-indigo-400 transition-colors">Data Analysis</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="bar-chart-2" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">Power BI / Excel</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-indigo-400 transition-colors">Dashboards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Machine Learning -->
+                    <div class="bg-slate-950 p-0 flex flex-col h-full">
+                        <div class="p-6 border-b border-white/5 bg-slate-950/50 backdrop-blur-sm">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-4">
+                                <i data-lucide="brain-circuit" class="w-5 h-5 text-cyan-400"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-slate-100">Intelligence</h3>
+                            <p class="text-sm text-slate-500 mt-1">Machine Learning and Deep Learning models.</p>
+                        </div>
+
+                        <div class="flex-1 divide-y divide-white/5">
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="layers" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">TensorFlow / Keras</span>
+                                </div>
+                                <span class="text-xs font-mono text-cyan-500 bg-cyan-500/10 px-2 py-0.5 rounded">Deep Learning</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="workflow" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">Scikit-learn</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-cyan-400 transition-colors">ML Models</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="eye" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">OpenCV</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-cyan-400 transition-colors">Computer Vision</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="sparkles" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">NLP</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-cyan-400 transition-colors">Text Processing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Dev Tools -->
+                    <div class="bg-slate-950 p-0 flex flex-col h-full">
+                        <div class="p-6 border-b border-white/5 bg-slate-950/50 backdrop-blur-sm">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                                <i data-lucide="code" class="w-5 h-5 text-emerald-400"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-slate-100">Development</h3>
+                            <p class="text-sm text-slate-500 mt-1">Tools and environments for deployment.</p>
+                        </div>
+
+                        <div class="flex-1 divide-y divide-white/5">
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="layout-dashboard" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">Flask</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-emerald-400 transition-colors">Web Apps</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="terminal" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">VS Code</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-emerald-400 transition-colors">IDE</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="book-open" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">Jupyter</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-emerald-400 transition-colors">Notebooks</span>
+                            </div>
+                            <div class="tech-row group flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors cursor-default">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="cloud" class="tech-icon w-4 h-4 text-slate-600 transition-all duration-300"></i>
+                                    <span class="text-sm font-medium text-slate-300">Google Colab</span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-600 group-hover:text-emerald-400 transition-colors">Cloud Compute</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Activity Bar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="p-3 rounded-lg border border-white/5 bg-white/[0.02] flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-slate-900 border border-slate-800 flex items-center justify-center">
+                            <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-500">Currently Learning</div>
+                            <div class="text-sm font-medium text-slate-300">Advanced DL</div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg border border-white/5 bg-white/[0.02] flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-slate-900 border border-slate-800 flex items-center justify-center">
+                            <i data-lucide="book-open" class="w-4 h-4 text-blue-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-500">Recent Cert</div>
+                            <div class="text-sm font-medium text-slate-300">Data Science</div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block"></div>
+                    <div class="hidden md:block"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="work" class="py-24 px-6 bg-slate-950 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                    <div class="space-y-4">
+                        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white">Selected Projects</h2>
+                        <p class="text-slate-400 max-w-xl">A collection of analysis, computer vision, and machine learning experiments.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Project 1 -->
+                    <article class="group relative grid grid-cols-1 md:grid-cols-12 gap-8 p-8 rounded-2xl glass-card hover:bg-slate-900 transition-colors border border-white/5 hover:border-white/10">
+                        <div class="md:col-span-8 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Unsupervised Learning</span>
+                            </div>
+                            <h3 class="text-2xl font-medium text-slate-100 group-hover:text-white transition-colors">
+                                Customer Segmentation Analysis
+                            </h3>
+                            <p class="text-slate-400 leading-relaxed">
+                                Executed exploratory data analysis and dimensionality reduction (PCA, t-SNE) to uncover meaningful patterns in mall customer behavior. Applied clustering algorithms like DBSCAN to segment customers based on demographics and spending patterns.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">Python</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">Scikit-learn</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">Clustering</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">Matplotlib</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-4 flex items-end justify-end">
+                            <div class="w-full h-40 rounded-xl bg-gradient-to-br from-emerald-500/10 to-teal-900/10 border border-emerald-500/20 flex items-center justify-center relative overflow-hidden group-hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-shadow">
+                                <div class="absolute inset-0 grid grid-cols-6 gap-1 opacity-20">
+                                    <div class="bg-emerald-500/20 col-span-1 h-full"></div>
+                                    <div class="col-span-1"></div>
+                                    <div class="bg-emerald-500/20 col-span-1 h-full"></div>
+                                </div>
+                                <i data-lucide="users" class="w-10 h-10 text-emerald-400/50"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="group relative grid grid-cols-1 md:grid-cols-12 gap-8 p-8 rounded-2xl glass-card hover:bg-slate-900 transition-colors border border-white/5 hover:border-white/10">
+                        <div class="md:col-span-8 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-indigo-400 bg-indigo-400/10 px-2 py-1 rounded">Deep Learning</span>
+                            </div>
+                            <h3 class="text-2xl font-medium text-slate-100 group-hover:text-white transition-colors">
+                                Dog vs Cat Image Classifier
+                            </h3>
+                            <p class="text-slate-400 leading-relaxed">
+                                Developed an image classification model using Convolutional Neural Networks (CNN) with TensorFlow and Keras. Implemented real-time data augmentation and achieved high accuracy in distinguishing between classes in a cloud-based environment.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">TensorFlow</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">Keras</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">CNN</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">Google Colab</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-4 flex items-end justify-end">
+                            <div class="w-full h-40 rounded-xl bg-gradient-to-br from-indigo-500/10 to-violet-900/10 border border-indigo-500/20 flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] transition-shadow">
+                                <i data-lucide="eye" class="w-10 h-10 text-indigo-400/50"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="group relative grid grid-cols-1 md:grid-cols-12 gap-8 p-8 rounded-2xl glass-card hover:bg-slate-900 transition-colors border border-white/5 hover:border-white/10">
+                        <div class="md:col-span-8 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-orange-400 bg-orange-400/10 px-2 py-1 rounded">Computer Vision</span>
+                            </div>
+                            <h3 class="text-2xl font-medium text-slate-100 group-hover:text-white transition-colors">
+                                Real-Time Face Detection App
+                            </h3>
+                            <p class="text-slate-400 leading-relaxed">
+                                Built a real-time face, eye, and smile detection system using Haar Cascade classifiers with OpenCV. Integrated the detection pipeline into a web interface using Flask, enabling live video streaming directly from the webcam.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">OpenCV</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">Flask</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">Python</span>
+                                <span class="text-xs text-slate-500 border border-slate-800 px-2 py-1 rounded-md">HTML/CSS</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-4 flex items-end justify-end">
+                            <div class="w-full h-40 rounded-xl bg-gradient-to-br from-orange-500/10 to-red-900/10 border border-orange-500/20 flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(249,115,22,0.1)] transition-shadow">
+                                <i data-lucide="video" class="w-10 h-10 text-orange-400/50"></i>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline / Experience -->
+        <section id="about" class="py-24 px-6 border-t border-slate-900">
+            <div class="max-w-3xl mx-auto space-y-12">
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white text-center">Journey</h2>
+                
+                <div class="relative pl-8 space-y-12 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[1px] before:bg-slate-800">
+                    
+                    <!-- Role 1 -->
+                    <div class="relative">
+                        <div class="absolute -left-[26px] top-1.5 h-3 w-3 rounded-full border border-slate-600 bg-slate-950"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h3 class="text-lg font-medium text-slate-100">Data Analyst Intern</h3>
+                            <span class="text-xs font-mono text-slate-500">Jan 2025 — Present</span>
+                        </div>
+                        <p class="text-sm text-indigo-400 mb-2">Scipy Technology Pvt Ltd</p>
+                        <p class="text-slate-400 leading-relaxed text-sm">
+                            Practicing exploratory data analysis (EDA) to identify trends. Creating dashboards with Power BI and building beginner-level machine learning models using Scikit-learn. Exploring Deep Learning with TensorFlow/Keras and NLP techniques.
+                        </p>
+                    </div>
+
+                    <!-- Role 2 -->
+                    <div class="relative">
+                        <div class="absolute -left-[26px] top-1.5 h-3 w-3 rounded-full border border-slate-800 bg-slate-950"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h3 class="text-lg font-medium text-slate-100">Data Analyst Intern</h3>
+                            <span class="text-xs font-mono text-slate-500">May 2024 — Nov 2024</span>
+                        </div>
+                        <p class="text-sm text-indigo-400 mb-2">Oracuz Info Tech Pvt Ltd</p>
+                        <p class="text-slate-400 leading-relaxed text-sm">
+                            Learned data analytics fundamentals, Python for data analysis, and visualization. Practiced cleaning small datasets and started exploring tools like Power BI and Google Sheets for basic reporting.
+                        </p>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="relative">
+                        <div class="absolute -left-[26px] top-1.5 h-3 w-3 rounded-full border border-slate-800 bg-slate-950"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h3 class="text-lg font-medium text-slate-100">Computer Science Engineering</h3>
+                            <span class="text-xs font-mono text-slate-500">2018 — 2022</span>
+                        </div>
+                        <p class="text-sm text-indigo-400 mb-2">John Cox Memorial C.S.I Institute Of Technology</p>
+                        <p class="text-slate-400 leading-relaxed text-sm">
+                            Focused on core computer science principles and software engineering foundations.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-slate-900 bg-slate-950 text-center">
+        <div class="max-w-6xl mx-auto flex flex-col items-center gap-8">
+            <div class="space-y-2">
+                <h2 class="text-2xl font-medium tracking-tight text-white">Let's collaborate</h2>
+                <p class="text-slate-500">Passionately using data to uncover insights. Open to new opportunities.</p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 items-center">
+                <a href="mailto:sarookrishnar@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-slate-950 font-medium hover:bg-slate-200 transition-colors">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    Get in touch
+                </a>
+                <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-700 bg-slate-900/50 text-white font-medium hover:bg-slate-800 transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Download Resume
+                </a>
+            </div>
+
+            <div class="flex gap-6 mt-4">
+                <a href="https://github.com/SAROO-KRISHNA" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-white transition-colors">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+            <p class="text-xs text-slate-600 mt-8">© 2025 Saroo Krishna R. Trivandrum, India.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+    </script>
+
 </body>
 </html>
